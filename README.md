@@ -43,7 +43,7 @@ In order to release a new version of this action:
 
 3. After publishing the release, the [`release` workflow][release] will automatically run to create/update the corresponding the major version tag such as `v0`.
 
-    Check the [Release workflow run list][release-workflow-runs].
+   ⚠️ Environment approval is required. Check the [Release workflow run list][release-workflow-runs].
 
 ## License
 
