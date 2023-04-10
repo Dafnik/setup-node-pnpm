@@ -38,7 +38,7 @@ In order to release a new version of this Action:
 The scripts and documentation in this project are released under the [MIT License](LICENSE).
 
 <!-- references -->
-[release-list]: https://github.com/actions/upload-pages-artifact/releases
+[release-list]: https://github.com/dafnik/setup-node-pnpm/releases
 [draft-release]: .github/workflows/draft-release.yml
 [release]: .github/workflows/release.yml
 [release-workflow-runs]: /actions/workflows/release.yml
