@@ -14,20 +14,29 @@ inputs:
     description: "Node version"
     required: false
     default: 18
+  install:
+    description: "Runs pnpm install"
+    required: false
+    default: false
+  install-ignore-scripts:
+    description: "Runs pnpm install --ignore-scripts"
+    required: false
+    default: false
 
 runs:
   using: "composite"
   steps:
-    - uses: pnpm/action-setup@v2
+    - name: use pnpm ${{ inputs.pnpm }}
+      uses: pnpm/action-setup@v2
       with:
         version: ${{ inputs.pnpm }}
-
-    - name: use Node.js 18
+  
+    - name: use Node.js ${{ inputs.node }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node }}
         cache: 'pnpm'
-
+        
     - name: get pnpm store directory
       id: pnpm-dir
       shell: bash
@@ -41,3 +50,13 @@ runs:
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
+
+    - name: Run pnpm install
+      if: "${{ inputs.install }}"
+      shell: bash
+      run: pnpm install
+
+    - name: Run pnpm install --ignore-scripts
+      if: "${{ inputs.install-ignore-scripts }}"
+      shell: bash
+      run: pnpm install --ignore-scripts

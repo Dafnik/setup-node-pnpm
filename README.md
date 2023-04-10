@@ -2,7 +2,7 @@
 
 A composite Action for setting up Node and PNPM.
 
-# Usage
+## Usage
 ```yml
 jobs:
   build:
@@ -16,14 +16,27 @@ jobs:
         # with:
           # pnpm: 8
           # node: 18
+          # install: false
+          # install-ignore-scripts: false
+          # path: ./
 ```
 
 
 Furthermore see [action.yml](action.yml)
 
-# Release instructions
+## Testing
 
-In order to release a new version of this Action:
+Local testing is done with [act][act]
+
+Run the test workflow:
+
+```bash
+act -j test
+```
+
+## Release instructions
+
+In order to release a new version of this action:
 
 1. Locate the semantic version of the [upcoming release][release-list] (a draft is maintained by the [`draft-release` workflow][draft-release]).
 
@@ -31,13 +44,14 @@ In order to release a new version of this Action:
 
 3. After publishing the release, the [`release` workflow][release] will automatically run to create/update the corresponding the major version tag such as `v0`.
 
-   ⚠️ Environment approval is required. Check the [Release workflow run list][release-workflow-runs].
+    Check the [Release workflow run list][release-workflow-runs].
 
-# License
+## License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE).
 
 <!-- references -->
+[act]: https://github.com/nektos/act
 [release-list]: https://github.com/dafnik/setup-node-pnpm/releases
 [draft-release]: .github/workflows/draft-release.yml
 [release]: .github/workflows/release.yml
