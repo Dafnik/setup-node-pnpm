@@ -41,4 +41,4 @@ The scripts and documentation in this project are released under the [MIT Licens
 [release-list]: https://github.com/dafnik/setup-node-pnpm/releases
 [draft-release]: .github/workflows/draft-release.yml
 [release]: .github/workflows/release.yml
-[release-workflow-runs]: /actions/workflows/release.yml
+[release-workflow-runs]: https://github.com/dafnik/setup-node-pnpm/actions/workflows/release.yml
