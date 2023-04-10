@@ -2,7 +2,7 @@ name: "Setup node and pnpm"
 author: "Dafnik"
 description: "Setup node, pnpm and the caching"
 branding:
-  icon: 'tool'
+  icon: 'arrow-down-circle'
   color: 'purple'
 
 inputs:
