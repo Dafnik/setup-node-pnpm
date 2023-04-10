@@ -1,5 +1,9 @@
 name: "Setup node and pnpm"
-description: "Setup node and pnpm"
+author: "Dafnik"
+description: "Setup node, pnpm and the caching"
+branding:
+  icon: 'tool'
+  color: 'purple'
 
 inputs:
   pnpm:
