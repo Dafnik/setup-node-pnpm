@@ -18,7 +18,6 @@ jobs:
           # node: 18
           # install: false
           # install-ignore-scripts: false
-          # path: ./
 ```
 
 
