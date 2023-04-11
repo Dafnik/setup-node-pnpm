@@ -17,11 +17,11 @@ inputs:
   install:
     description: "Runs pnpm install"
     required: false
-    default: false
+    default: 'false'
   install-ignore-scripts:
     description: "Runs pnpm install --ignore-scripts"
     required: false
-    default: false
+    default: 'false'
 
 runs:
   using: "composite"
@@ -52,11 +52,11 @@ runs:
           ${{ runner.os }}-pnpm-store-
 
     - name: Run pnpm install
-      if: "${{ inputs.install }}"
+      if: "${{ inputs.install == 'true' }}"
       shell: bash
-      run: pnpm install
+      run: pnpm install --frozen-lockfile
 
     - name: Run pnpm install --ignore-scripts
-      if: "${{ inputs.install-ignore-scripts }}"
+      if: "${{ inputs.install-ignore-scripts == 'true' }}"
       shell: bash
-      run: pnpm install --ignore-scripts
+      run: pnpm install --frozen-lockfile --ignore-scripts
