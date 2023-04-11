@@ -54,9 +54,9 @@ runs:
     - name: Run pnpm install
       if: "${{ inputs.install }}"
       shell: bash
-      run: pnpm install
+      run: pnpm install --frozen-lockfile
 
     - name: Run pnpm install --ignore-scripts
       if: "${{ inputs.install-ignore-scripts }}"
       shell: bash
-      run: pnpm install --ignore-scripts
+      run: pnpm install --frozen-lockfile --ignore-scripts
