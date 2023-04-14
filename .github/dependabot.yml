@@ -11,12 +11,13 @@ updates:
       - "Dafnik"
     commit-message:
       prefix: "chore(dependencies)"
+      
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
     assignees:
-      - "Dafnik
+      - "Dafnik"
     commit-message:
       prefix: "chore(dependencies)"
 
