@@ -18,10 +18,6 @@ inputs:
     description: "Work directory"
     required: false
     default: "."
-  cache-dependency-path:
-    description: "Path to pnpm-lock.yaml"
-    required: false
-    default: "pnpm-lock.yaml"
   install:
     description: "Runs pnpm install"
     required: false
