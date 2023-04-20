@@ -20,7 +20,7 @@ jobs:
           # Node version to install
           node: 18
           
-          # Changes the working dir of pnpm install and pnpm-lock.yaml lookup location
+          # Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled
           cwd: "."
           
           # Runs "pnpm install" in working directory
