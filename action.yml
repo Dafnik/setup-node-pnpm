@@ -15,9 +15,9 @@ inputs:
     required: false
     default: 18
   cwd:
-    description: "PNPM work path"
+    description: "Work directory"
     required: false
-    default: "./"
+    default: "."
   cache-dependency-path:
     description: "Path to pnpm-lock.yaml"
     required: false
@@ -43,8 +43,8 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node }}
-        cache: 'pnpm'
-        cache-dependency-path: ${{ inputs.cache-dependency-path }}
+        cache: "pnpm"
+        cache-dependency-path: "${{ inputs.cwd }}/pnpm-lock.yaml"
 
     - name: Run pnpm install
       if: "${{ inputs.install == 'true' }}"
