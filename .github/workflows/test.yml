@@ -11,4 +11,5 @@ jobs:
       - uses: ./
         with:
           cwd: "test"
+          cache-dependency-path: "test/pnpm-lock.yaml"
           install-ignore-scripts: true
