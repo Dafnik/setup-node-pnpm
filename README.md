@@ -13,23 +13,22 @@ jobs:
 
       - name: setup node and pnpm
         uses: dafnik/setup-node-pnpm@v1
-        with:
-          # PNPM version to install
-          pnpm: 8
-          
-          # Node version to install
-          node: 18
-          
-          # Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled
-          cwd: "."
-          
-          # Runs "pnpm install" in working directory
-          install: false
-          
-          # Runs "pnpm install --ingore-scripts" in working directory
-          # Enable "install" or "install-ignore-scripts" only once
+        # with:
+          # pnpm: 8
+          # node: 18
+          # cwd: "."
+          # install: false
           # install-ignore-scripts: false
 ```
+
+| Inputs                   | Default value  | Description                   |
+|--------------------------|----------------|-------------------------------|
+| `pnpm`                   | `8`            | PNPM version to install |
+| `node`                   | `18`           | Node version to install |
+| `cwd`                    | `.`            | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled |
+| `install`                | `false`        | Runs "pnpm install" in working directory |
+| `install-ignore-scripts` | `false`        | Runs "pnpm install --ingore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once |
+
 
 
 Furthermore see [action.yml](action.yml)
