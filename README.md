@@ -21,17 +21,17 @@ jobs:
           # install-ignore-scripts: false
 ```
 
-| Inputs                   | Default value  | Description                   |
-|--------------------------|----------------|-------------------------------|
-| `pnpm`                   | `8`            | PNPM version to install |
-| `node`                   | `18`           | Node version to install |
-| `cwd`                    | `.`            | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled |
-| `install`                | `false`        | Runs "pnpm install" in working directory |
-| `install-ignore-scripts` | `false`        | Runs "pnpm install --ingore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once |
+| Inputs                   | Default value | Description                                                                                                       |
+|--------------------------|---------------|-------------------------------------------------------------------------------------------------------------------|
+| `pnpm`                   | `8`           | PNPM version to install                                                                                           |
+| `node`                   | `18`          | Node version to install                                                                                           |
+| `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                        |
+| `install`                | `false`       | Runs "pnpm install" in working directory                                                                          |
+| `install-ignore-scripts` | `false`       | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once |
 
 
 
-Furthermore see [action.yml](action.yml)
+Furthermore, see [action.yml](action.yml)
 
 ## Testing
 
