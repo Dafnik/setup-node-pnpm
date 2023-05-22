@@ -22,14 +22,14 @@ jobs:
           # install-ignore-scripts: false
 ```
 
-| Inputs                   | Default value | Description                                                                                                                                                                                                                 |
-|--------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pnpm`                   | `8`           | PNPM version to install                                                                                                                                                                                                     |
-| `node`                   | `18`          | Version Spec of the version to use in SemVer notation.<br /> It also emits such aliases as lts, latest, nightly and canary builds.<br /> Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node         |
-| `node-file`              | `''`          | File containing the version Spec of the version to use.<br /> Examples: .nvmrc, .node-version, .tool-versions.<br /> If node-version and node-version-file are both provided the action will use version from node-version. |
-| `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                                  |
-| `install`                | `false`       | Runs "pnpm install" in working directory                                                                                                                                                                                    |
-| `install-ignore-scripts` | `false`       | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once                                                                                                           |
+| Inputs                   | Default value | Description                                                                                                                                                                                                         |
+|--------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pnpm`                   | `8`           | PNPM version to install                                                                                                                                                                                             |
+| `node`                   | `18`          | Version Spec of the version to use in SemVer notation.<br /> It also emits such aliases as lts, latest, nightly and canary builds.<br /> Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node |
+| `node-file`              | `''`          | File containing the version Spec of the version to use.<br /> Examples: .nvmrc, .node-version, .tool-versions.<br /> If `node` and `node-file` are both provided the action will use version from `node-file`.      |
+| `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                          |
+| `install`                | `false`       | Runs "pnpm install" in working directory                                                                                                                                                                            |
+| `install-ignore-scripts` | `false`       | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once                                                                                                   |
 
 
 
