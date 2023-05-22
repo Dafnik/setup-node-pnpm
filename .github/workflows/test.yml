@@ -6,9 +6,33 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16, 18]
+        pnpm: [7, 8]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        with:
+          node: ${{ matrix.node }}
+          pnpm: ${{ matrix.pnpm }}
+          cwd: "test"
+          install-ignore-scripts: true
+
+  test-version-file:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         with:
           cwd: "test"
+          node-file: ".node-version"
           install-ignore-scripts: true
+
+      - name: check version
+        id: check-version
+        run: echo "VERSION=$(node -v)" >> $GITHUB_OUTPUT
+
+      - name: fail on wrong version (${{ steps.check-version.outputs.VERSION }})
+        if: ${{ steps.check-version.outputs.VERSION != 'v16.16.0' }}
+        run: exit 1
