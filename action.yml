@@ -9,11 +9,14 @@ inputs:
   pnpm:
     description: "PNPM version"
     required: false
-    default: 8
+    default: '8'
   node:
-    description: "Node version"
+    description: "Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0."
     required: false
-    default: 18
+    default: '18'
+  node-file:
+    description: 'File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version, .tool-versions.'
+    required: false
   cwd:
     description: "Work directory"
     required: false
@@ -39,6 +42,7 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node }}
+        node-version-file: ${{ inputs.node-file }}
         cache: "pnpm"
         cache-dependency-path: "${{ inputs.cwd }}/pnpm-lock.yaml"
 
