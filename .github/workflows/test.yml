@@ -11,7 +11,7 @@ jobs:
         node: [16, 18]
         pnpm: [7, 8]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./
         with:
           node: ${{ matrix.node }}
@@ -22,7 +22,7 @@ jobs:
   test-version-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./
         with:
           cwd: "test"
