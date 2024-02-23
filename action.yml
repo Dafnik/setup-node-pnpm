@@ -35,7 +35,7 @@ runs:
   using: "composite"
   steps:
     - name: use pnpm ${{ inputs.pnpm }}
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v3
       with:
         version: ${{ inputs.pnpm }}
 
