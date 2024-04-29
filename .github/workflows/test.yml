@@ -34,5 +34,5 @@ jobs:
         run: echo "VERSION=$(node -v)" >> $GITHUB_OUTPUT
 
       - name: fail on wrong version (${{ steps.check-version.outputs.VERSION }})
-        if: ${{ steps.check-version.outputs.VERSION != 'v16.16.0' }}
+        if: ${{ steps.check-version.outputs.VERSION != 'v22.0.0' }}
         run: exit 1
