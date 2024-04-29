@@ -14,7 +14,7 @@ jobs:
       - name: setup node and pnpm
         uses: dafnik/setup-node-pnpm@v1
         # with:
-          # pnpm: 8
+          # pnpm: 9
           # node: 20
           # node-file: ''
           # cwd: '.'
@@ -24,7 +24,7 @@ jobs:
 
 | Inputs                   | Default value | Description                                                                                                                                                                                                         |
 |--------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pnpm`                   | `8`           | PNPM version to install                                                                                                                                                                                             |
+| `pnpm`                   | `9`           | PNPM version to install                                                                                                                                                                                             |
 | `node`                   | `20`          | Version Spec of the version to use in SemVer notation.<br /> It also emits such aliases as lts, latest, nightly and canary builds.<br /> Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node |
 | `node-file`              | `''`          | File containing the version Spec of the version to use.<br /> Examples: .nvmrc, .node-version, .tool-versions.<br /> If `node` and `node-file` are both provided the action will use version from `node-file`.      |
 | `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                          |
