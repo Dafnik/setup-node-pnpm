@@ -4,15 +4,15 @@
 
 | Version | Supported          |
 |---------|--------------------|
+| 3.x.x   | :white_check_mark: |
 | 2.x.x   | :white_check_mark: |
-| 1.x.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| < 2.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-If you believe you've identified a security vulnerability in setup-node-pnpm (a bug that allows something to happen that shouldn't be possible), you can reach us at <security@dafnik.me>.
+If you believe you've identified a security vulnerability in `setup-node-pnpm` (a bug that allows something to happen that shouldn't be possible), you can reach us at <security@dafnik.me>.
 
-You should _not_ report such issues on GitHub or in other public spaces to give us time to publish a fix for the issue without exposing setup-node-pnpm's users to increased risk.
+You will receive a response from us within 48 hours. If the issue is confirmed, we will release a patch as soon as possible depending on complexity but likely within a few days.
 
 ## Scope
 
