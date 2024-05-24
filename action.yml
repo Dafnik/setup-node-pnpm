@@ -1,17 +1,17 @@
-name: "Setup node and pnpm"
-author: "Dafnik"
-description: "Setup node, pnpm and the caching"
+name: 'Setup node and pnpm'
+author: 'Dafnik'
+description: 'Setup node, pnpm and the caching'
 branding:
   icon: 'arrow-down-circle'
   color: 'purple'
 
 inputs:
   pnpm:
-    description: "PNPM version"
+    description: 'PNPM version'
     required: false
     default: '9'
   node:
-    description: "Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0."
+    description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
     required: false
     default: '22'
   node-file:
@@ -19,20 +19,20 @@ inputs:
     required: false
     default: ''
   cwd:
-    description: "Work directory"
+    description: 'Work directory'
     required: false
-    default: "."
+    default: '.'
   install:
-    description: "Runs pnpm install"
+    description: 'Runs pnpm install'
     required: false
-    default: "false"
+    default: 'false'
   install-ignore-scripts:
-    description: "Runs pnpm install --ignore-scripts"
+    description: 'Runs pnpm install --ignore-scripts'
     required: false
-    default: "false"
+    default: 'false'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: use pnpm ${{ inputs.pnpm }}
       uses: pnpm/action-setup@v3
@@ -44,16 +44,16 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node }}
-        cache: "pnpm"
-        cache-dependency-path: "${{ inputs.cwd }}/pnpm-lock.yaml"
+        cache: 'pnpm'
+        cache-dependency-path: '${{ inputs.cwd }}/pnpm-lock.yaml'
 
     - name: use Node.js ${{ inputs.node }}
       if: "${{ inputs.node-file != '' }}"
       uses: actions/setup-node@v4
       with:
-        node-version-file: "${{ inputs.cwd }}/${{ inputs.node-file }}"
-        cache: "pnpm"
-        cache-dependency-path: "${{ inputs.cwd }}/pnpm-lock.yaml"
+        node-version-file: '${{ inputs.cwd }}/${{ inputs.node-file }}'
+        cache: 'pnpm'
+        cache-dependency-path: '${{ inputs.cwd }}/pnpm-lock.yaml'
 
     - name: Run pnpm install
       if: "${{ inputs.install == 'true' }}"

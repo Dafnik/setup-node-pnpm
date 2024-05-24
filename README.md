@@ -3,6 +3,7 @@
 A composite Action for setting up Node and PNPM.
 
 ## Usage
+
 ```yml
 jobs:
   build:
@@ -14,14 +15,15 @@ jobs:
       - name: setup node and pnpm
         uses: dafnik/setup-node-pnpm@v1
         # with:
-          # pnpm: 8
-          # node: 22
-          # node-file: ''
-          # cwd: '.'
-          # install: false
-          # install-ignore-scripts: false
+        #   pnpm: 8
+        #   node: 22
+        #   node-file: ''
+        #   cwd: '.'
+        #   install: false
+        #   install-ignore-scripts: false
 ```
 
+<!-- prettier-ignore-start -->
 | Inputs                   | Default value | Description                                                                                                                                                                                                         |
 |--------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pnpm`                   | `9`           | PNPM version to install                                                                                                                                                                                             |
@@ -30,8 +32,7 @@ jobs:
 | `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                          |
 | `install`                | `false`       | Runs "pnpm install" in working directory                                                                                                                                                                            |
 | `install-ignore-scripts` | `false`       | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once                                                                                                   |
-
-
+<!-- prettier-ignore-end -->
 
 Furthermore, see [action.yml](action.yml)
 
@@ -62,6 +63,7 @@ In order to release a new version of this action:
 The scripts and documentation in this project are released under the [MIT License](LICENSE).
 
 <!-- references -->
+
 [act]: https://github.com/nektos/act
 [release-list]: https://github.com/dafnik/setup-node-pnpm/releases
 [draft-release]: .github/workflows/draft-release.yml
