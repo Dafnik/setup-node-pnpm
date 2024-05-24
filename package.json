@@ -1,0 +1,16 @@
+{
+  "name": "setup-node-pnpm",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "author": "Dafnik",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "prettier": "3.2.5"
+  }
+}
