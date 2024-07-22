@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20]
-        pnpm: [7, 8]
+        node: [20, 22]
+        pnpm: [8, 9]
     steps:
       - uses: actions/checkout@v4
       - uses: ./
@@ -18,6 +18,34 @@ jobs:
           pnpm: ${{ matrix.pnpm }}
           cwd: 'test'
           install-ignore-scripts: true
+
+      - name: Check version
+        id: check-version
+        run: |
+          NODE_VERSION=$(node -v)
+          MATRIX_NODE_VERSION=v${{ matrix.node }}
+          NODE_VERSION_FIRST_PART=$(echo $NODE_VERSION | cut -d. -f1)
+          MATRIX_NODE_VERSION_FIRST_PART=$(echo $MATRIX_NODE_VERSION | cut -d. -f1)
+          echo "NODE_VERSION_FIRST_PART=$NODE_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+          echo "MATRIX_NODE_VERSION_FIRST_PART=$MATRIX_NODE_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+
+      - name: Fail on wrong version (${{ steps.check-version.outputs.NODE_VERSION_FIRST_PART }}, ${{ steps.check-version.outputs.MATRIX_NODE_VERSION_FIRST_PART }})
+        if: ${{ steps.check-version.outputs.NODE_VERSION_FIRST_PART != steps.check-version.outputs.MATRIX_NODE_VERSION_FIRST_PART }}
+        run: exit 1
+
+      - name: Check pnpm version
+        id: check-pnpm-version
+        run: |
+          PNPM_VERSION=$(pnpm -v)
+          MATRIX_PNPM_VERSION=${{ matrix.pnpm }}
+          PNPM_VERSION_FIRST_PART=$(echo $PNPM_VERSION | cut -d. -f1)
+          MATRIX_PNPM_VERSION_FIRST_PART=$(echo $MATRIX_PNPM_VERSION | cut -d. -f1)
+          echo "PNPM_VERSION_FIRST_PART=$PNPM_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+          echo "MATRIX_PNPM_VERSION_FIRST_PART=$MATRIX_PNPM_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+
+      - name: Fail on wrong pnpm version (${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART }}, ${{ steps.check-pnpm-version.outputs.MATRIX_PNPM_VERSION_FIRST_PART }})
+        if: ${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART != steps.check-pnpm-version.outputs.MATRIX_PNPM_VERSION_FIRST_PART }}
+        run: exit 1
 
   test-version-file:
     runs-on: ubuntu-latest
@@ -30,9 +58,20 @@ jobs:
           install-ignore-scripts: true
 
       - name: check version
-        id: check-version
+        id: check-node-version
         run: echo "VERSION=$(node -v)" >> $GITHUB_OUTPUT
 
-      - name: fail on wrong version (${{ steps.check-version.outputs.VERSION }})
-        if: ${{ steps.check-version.outputs.VERSION != 'v22.0.0' }}
+      - name: fail on wrong version (${{ steps.check-node-version.outputs.VERSION }})
+        if: ${{ steps.check-node-version.outputs.VERSION != 'v22.0.0' }}
+        run: exit 1
+
+      - name: Check pnpm version
+        id: check-pnpm-version
+        run: |
+          PNPM_VERSION=$(pnpm -v)
+          PNPM_VERSION_FIRST_PART=$(echo $PNPM_VERSION | cut -d. -f1)
+          echo "PNPM_VERSION_FIRST_PART=$PNPM_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+
+      - name: Fail on wrong pnpm version (${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART }})
+        if: ${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART != '9' }}
         run: exit 1
