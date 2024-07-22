@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: setup node and pnpm
-        uses: dafnik/setup-node-pnpm@v1
+        uses: dafnik/setup-node-pnpm@v3
         # with:
         #   pnpm: 8
         #   node: 22
