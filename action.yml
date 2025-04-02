@@ -9,19 +9,22 @@ inputs:
   pnpm:
     description: 'PNPM version'
     required: false
-    default: '9'
   node:
     description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
     required: false
     default: '22'
   node-file:
-    description: 'File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version, .tool-versions.'
+    description: 'File containing the version Spec of the version to use. Examples: .nvmrc, .node-version, .tool-versions. If "node" and "node-file" are both provided the action will use the version from "node-file".'
     required: false
     default: ''
   cwd:
     description: 'Work directory'
     required: false
     default: '.'
+  package_file:
+    description: 'File path to the package.json to read "packageManager" configuration (also supports package.yml). Works in conjunction with "cwd"'
+    required: false
+    default: 'package.json'
   install:
     description: 'Runs pnpm install'
     required: false
@@ -38,6 +41,7 @@ runs:
       uses: pnpm/action-setup@v4
       with:
         version: ${{ inputs.pnpm }}
+        package_json_file: '${{ inputs.cwd }}/${{ inputs.package_file }}'
 
     - name: use Node.js ${{ inputs.node }}
       if: "${{ inputs.node-file == '' }}"

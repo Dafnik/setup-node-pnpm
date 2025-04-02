@@ -10,12 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: setup node and pnpm
-        uses: dafnik/setup-node-pnpm@v3
+        uses: dafnik/setup-node-pnpm@v4
         # with:
-        #   pnpm: 8
         #   node: 22
         #   node-file: ''
         #   cwd: '.'
@@ -24,14 +23,15 @@ jobs:
 ```
 
 <!-- prettier-ignore-start -->
-| Inputs                   | Default value | Description                                                                                                                                                                                                         |
-|--------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pnpm`                   | `9`           | PNPM version to install                                                                                                                                                                                             |
-| `node`                   | `22`          | Version Spec of the version to use in SemVer notation.<br /> It also emits such aliases as lts, latest, nightly and canary builds.<br /> Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node |
-| `node-file`              | `''`          | File containing the version Spec of the version to use.<br /> Examples: .nvmrc, .node-version, .tool-versions.<br /> If `node` and `node-file` are both provided the action will use version from `node-file`.      |
-| `cwd`                    | `.`           | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                          |
-| `install`                | `false`       | Runs "pnpm install" in working directory                                                                                                                                                                            |
-| `install-ignore-scripts` | `false`       | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once                                                                                                   |
+| Inputs                   | Default value  | Description                                                                                                                                                                                                         |
+|--------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pnpm`                   |                | PNPM version to install                                                                                                                                                                                             |
+| `node`                   | `22`           | Version Spec of the version to use in SemVer notation.<br /> It also emits such aliases as lts, latest, nightly and canary builds.<br /> Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node |
+| `node-file`              | `''`           | File containing the version Spec of the version to use.<br /> Examples: .nvmrc, .node-version, .tool-versions.<br /> If `node` and `node-file` are both provided the action will use the version from `node-file`.  |
+| `cwd`                    | `.`            | Changes pnpm-lock.yaml lookup location and the work directory of "pnpm install" if enabled                                                                                                                          |
+| `package_file`           | `package.json` | File path to the package.json to read "packageManager" configuration (also supports package.yml). Works in conjunction with "cwd" input.                                                                            |
+| `install`                | `false`        | Runs "pnpm install" in working directory                                                                                                                                                                            |
+| `install-ignore-scripts` | `false`        | Runs "pnpm install --ignore-scripts" in working directory. Enable "install" or "install-ignore-scripts" only once                                                                                                   |
 <!-- prettier-ignore-end -->
 
 Furthermore, see [action.yml](action.yml)

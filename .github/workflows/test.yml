@@ -19,7 +19,7 @@ jobs:
           cwd: 'test'
           install-ignore-scripts: true
 
-      - name: Check version
+      - name: Check node version
         id: check-version
         run: |
           NODE_VERSION=$(node -v)
@@ -47,22 +47,55 @@ jobs:
         if: ${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART != steps.check-pnpm-version.outputs.MATRIX_PNPM_VERSION_FIRST_PART }}
         run: exit 1
 
-  test-version-file:
+  test-node-version-file:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./
         with:
+          pnpm: 9
           cwd: 'test'
           node-file: '.node-version'
           install-ignore-scripts: true
 
-      - name: check version
+      - name: check node version
         id: check-node-version
         run: echo "VERSION=$(node -v)" >> $GITHUB_OUTPUT
 
       - name: fail on wrong version (${{ steps.check-node-version.outputs.VERSION }})
         if: ${{ steps.check-node-version.outputs.VERSION != 'v22.0.0' }}
+        run: exit 1
+
+      - name: Check pnpm version
+        id: check-pnpm-version
+        run: |
+          PNPM_VERSION=$(pnpm -v)
+          PNPM_VERSION_FIRST_PART=$(echo $PNPM_VERSION | cut -d. -f1)
+          echo "PNPM_VERSION_FIRST_PART=$PNPM_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+
+      - name: Fail on wrong pnpm version (${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART }})
+        if: ${{ steps.check-pnpm-version.outputs.PNPM_VERSION_FIRST_PART != '9' }}
+        run: exit 1
+
+  test-package-version-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          node: 22
+          cwd: 'test/test-package-version-manager'
+          install-ignore-scripts: true
+
+      - name: check node version
+        id: check-node-version
+        run: |
+          NODE_VERSION=$(node -v)
+          NODE_VERSION_FIRST_PART=$(echo $NODE_VERSION | cut -d. -f1)
+          echo "NODE_VERSION_FIRST_PART=$NODE_VERSION_FIRST_PART" >> $GITHUB_OUTPUT
+
+      - name: fail on wrong version (${{ steps.check-node-version.outputs.NODE_VERSION_FIRST_PART }})
+        if: ${{ steps.check-node-version.outputs.NODE_VERSION_FIRST_PART != 'v22' }}
         run: exit 1
 
       - name: Check pnpm version
