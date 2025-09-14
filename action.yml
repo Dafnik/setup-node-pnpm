@@ -45,7 +45,7 @@ runs:
 
     - name: use Node.js ${{ inputs.node }}
       if: "${{ inputs.node-file == '' }}"
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: ${{ inputs.node }}
         cache: 'pnpm'
@@ -53,7 +53,7 @@ runs:
 
     - name: use Node.js ${{ inputs.node }}
       if: "${{ inputs.node-file != '' }}"
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version-file: '${{ inputs.cwd }}/${{ inputs.node-file }}'
         cache: 'pnpm'
