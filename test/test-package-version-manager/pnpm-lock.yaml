@@ -1,11 +1,22 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
-devDependencies:
-  '@types/node':
-    specifier: latest
-    version: 18.15.11
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@types/node':
+        specifier: latest
+        version: 18.15.11
 
 packages:
-  /@types/node@18.15.11:
+
+  '@types/node@18.15.11':
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
-    dev: true
+
+snapshots:
+
+  '@types/node@18.15.11': {}

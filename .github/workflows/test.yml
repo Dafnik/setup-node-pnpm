@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22]
-        pnpm: [8, 9]
+        node: [22, 24]
+        pnpm: [9, 10]
     steps:
       - uses: actions/checkout@v5
       - uses: ./

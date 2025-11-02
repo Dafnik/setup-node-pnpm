@@ -12,7 +12,7 @@ inputs:
   node:
     description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
     required: false
-    default: '22'
+    default: '24'
   node-file:
     description: 'File containing the version Spec of the version to use. Examples: .nvmrc, .node-version, .tool-versions. If "node" and "node-file" are both provided the action will use the version from "node-file".'
     required: false
