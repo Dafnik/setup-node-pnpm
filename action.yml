@@ -38,7 +38,7 @@ runs:
   using: 'composite'
   steps:
     - name: use pnpm ${{ inputs.pnpm }}
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v5
       with:
         version: ${{ inputs.pnpm }}
         package_json_file: '${{ inputs.cwd }}/${{ inputs.package_file }}'
