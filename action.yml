@@ -7,7 +7,7 @@ branding:
 
 inputs:
   pnpm:
-    description: 'PNPM version'
+    description: 'PNPM version to install (leave empty to read "packageManager" configuration of your "package_file"'
     required: false
   node:
     description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
@@ -22,7 +22,7 @@ inputs:
     required: false
     default: '.'
   package_file:
-    description: 'File path to the package.json to read "packageManager" configuration (also supports package.yml). Works in conjunction with "cwd"'
+    description: 'File path to the "package.json" to read "packageManager" configuration (also supports package.yml). Works in conjunction with "cwd" input.'
     required: false
     default: 'package.json'
   install:

@@ -1,7 +1,7 @@
 {
   "name": "test-package-version-manager",
   "version": "1.0.0",
-  "packageManager": "pnpm@9.11.0",
+  "packageManager": "pnpm@11.9.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
